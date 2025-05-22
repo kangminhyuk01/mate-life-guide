@@ -4,9 +4,14 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ChevronDown } from "lucide-react";
 
 const FriendlyChat = () => {
   const [isAcademicInfoOpen, setIsAcademicInfoOpen] = useState(false);
+  const [isLectureInfoOpen, setIsLectureInfoOpen] = useState(false);
+  const [isInternationalOpen, setIsInternationalOpen] = useState(false);
+  const [isCampusInfoOpen, setIsCampusInfoOpen] = useState(false);
 
   return (
     <main className="flex overflow-hidden flex-col pt-14 pb-32 bg-white max-md:pb-24">
@@ -52,66 +57,108 @@ const FriendlyChat = () => {
                     <p className="self-start px-6 py-4 bg-gray-100 rounded-3xl max-md:px-5">안녕! 무슨 고민있어?</p>
                   </div>
 
-                  {/* Academic Information Accordion */}
-                  <div className="w-full mt-2 text-sm">
-                    <article className="text-sm text-black max-w-[266px]">
-                      <section className="flex overflow-hidden flex-col px-6 pt-5 pb-8 w-full rounded-md border border-purple-500 border-dashed">
-                        <Accordion type="single" collapsible className="w-full">
-                          <AccordionItem value="academic-info" className="border-none">
-                            <AccordionTrigger className="flex gap-5 justify-between px-5 py-3.5 whitespace-nowrap bg-sky-100 rounded-xl hover:no-underline">
-                              <span className="my-auto">학사안내</span>
-                              <img 
-                                src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/51de631b4d5ae4d64d3ef80f8c8200dc4b521e06?placeholderIfAbsent=true" 
-                                className="object-contain shrink-0 w-5 aspect-square"
-                                alt="Information icon"
-                              />
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="pt-7">
-                                <div className="flex gap-5 justify-between items-start px-5 py-3.5 whitespace-nowrap bg-sky-100 rounded-xl border border-black border-solid">
-                                  <h2>학사안내</h2>
-                                  <img
-                                    src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/5da1537186d9ca8dc1298c7c81113fcd70c185f5?placeholderIfAbsent=true"
-                                    className="object-contain shrink-0 w-5 aspect-square"
-                                    alt="Information icon"
-                                  />
-                                </div>
-                                <section className="flex flex-col self-start px-3 pt-3 pb-6 mt-7 bg-white rounded-xl border border-black border-solid">
-                                  <p className="self-start">1전공 졸업요건이 궁금합니다</p>
-                                  <p className="mt-3.5">졸업하려면 몇학점 들어야하나요?</p>
-                                  <p className="self-start mt-3.5">계절학기는 언제 신청하나요?</p>
-                                  <p className="mt-2.5">신입생은 언제 휴학신청이 가능한가요?</p>
-                                  <p className="self-start mt-3.5">예비군은 어떻게 신청하나요?</p>
-                                  <p className="mt-3.5">휴학하고 싶은데 등록금 환불은 어떻게 하나요 ?</p>
-                                </section>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
-                      </section>
-                    </article>
+                  {/* Category Accordions */}
+                  <div className="w-full mt-4 space-y-3">
+                    {/* 학사안내 Accordion */}
+                    <Collapsible
+                      open={isAcademicInfoOpen}
+                      onOpenChange={setIsAcademicInfoOpen}
+                      className="w-full border border-dashed border-purple-500 rounded-md p-2"
+                    >
+                      <CollapsibleTrigger className="flex justify-between items-center w-full px-5 py-3.5 bg-sky-100 rounded-xl">
+                        <span className="text-sm">학사안내</span>
+                        <ChevronDown className="h-5 w-5 transition-transform duration-200" style={{ transform: isAcademicInfoOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="pt-4">
+                        <div className="flex flex-col space-y-3">
+                          <div className="flex gap-5 justify-between items-start px-5 py-3.5 whitespace-nowrap bg-sky-100 rounded-xl border border-black border-solid">
+                            <h2>학사안내</h2>
+                            <img
+                              src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/5da1537186d9ca8dc1298c7c81113fcd70c185f5?placeholderIfAbsent=true"
+                              className="object-contain shrink-0 w-5 aspect-square"
+                              alt="Information icon"
+                            />
+                          </div>
+                          <section className="flex flex-col self-start px-3 pt-3 pb-6 bg-white rounded-xl border border-black border-solid">
+                            <p className="self-start">1전공 졸업요건이 궁금합니다</p>
+                            <p className="mt-3.5">졸업하려면 몇학점 들어야하나요?</p>
+                            <p className="self-start mt-3.5">계절학기는 언제 신청하나요?</p>
+                            <p className="mt-2.5">신입생은 언제 휴학신청이 가능한가요?</p>
+                            <p className="self-start mt-3.5">예비군은 어떻게 신청하나요?</p>
+                            <p className="mt-3.5">휴학하고 싶은데 등록금 환불은 어떻게 하나요 ?</p>
+                          </section>
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
+
+                    {/* 강의안내 Accordion */}
+                    <Collapsible
+                      open={isLectureInfoOpen}
+                      onOpenChange={setIsLectureInfoOpen}
+                      className="w-full border border-dashed border-purple-500 rounded-md p-2"
+                    >
+                      <CollapsibleTrigger className="flex justify-between items-center w-full px-5 py-3.5 bg-sky-100 rounded-xl">
+                        <span className="text-sm">강의안내</span>
+                        <ChevronDown className="h-5 w-5 transition-transform duration-200" style={{ transform: isLectureInfoOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="pt-4">
+                        <div className="flex flex-col space-y-3">
+                          <section className="flex flex-col self-start px-3 pt-3 pb-6 bg-white rounded-xl border border-black border-solid">
+                            <p className="self-start">수강신청은 어떻게 하나요?</p>
+                            <p className="mt-3.5">강의 평가는 어디서 볼 수 있나요?</p>
+                            <p className="self-start mt-3.5">전공필수과목이 무엇인가요?</p>
+                            <p className="mt-2.5">수업 교재는 어디서 구매하나요?</p>
+                            <p className="self-start mt-3.5">수업 출석은 어떻게 확인하나요?</p>
+                          </section>
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
+
+                    {/* 국제교류 Accordion */}
+                    <Collapsible
+                      open={isInternationalOpen}
+                      onOpenChange={setIsInternationalOpen}
+                      className="w-full border border-dashed border-purple-500 rounded-md p-2"
+                    >
+                      <CollapsibleTrigger className="flex justify-between items-center w-full px-5 py-3.5 bg-sky-100 rounded-xl">
+                        <span className="text-sm">국제교류</span>
+                        <ChevronDown className="h-5 w-5 transition-transform duration-200" style={{ transform: isInternationalOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="pt-4">
+                        <div className="flex flex-col space-y-3">
+                          <section className="flex flex-col self-start px-3 pt-3 pb-6 bg-white rounded-xl border border-black border-solid">
+                            <p className="self-start">교환학생 신청 방법이 궁금해요</p>
+                            <p className="mt-3.5">해외 인턴십 프로그램은 어떻게 참여하나요?</p>
+                            <p className="self-start mt-3.5">어학연수 프로그램이 있나요?</p>
+                            <p className="mt-2.5">외국인 친구를 사귈 수 있는 프로그램이 있나요?</p>
+                          </section>
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
+
+                    {/* 교내문의 Accordion */}
+                    <Collapsible
+                      open={isCampusInfoOpen}
+                      onOpenChange={setIsCampusInfoOpen}
+                      className="w-full border border-dashed border-purple-500 rounded-md p-2"
+                    >
+                      <CollapsibleTrigger className="flex justify-between items-center w-full px-5 py-3.5 bg-sky-100 rounded-xl">
+                        <span className="text-sm">교내문의</span>
+                        <ChevronDown className="h-5 w-5 transition-transform duration-200" style={{ transform: isCampusInfoOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="pt-4">
+                        <div className="flex flex-col space-y-3">
+                          <section className="flex flex-col self-start px-3 pt-3 pb-6 bg-white rounded-xl border border-black border-solid">
+                            <p className="self-start">도서관 운영시간이 어떻게 되나요?</p>
+                            <p className="mt-3.5">학생증 재발급은 어디서 하나요?</p>
+                            <p className="self-start mt-3.5">기숙사 신청 방법이 궁금합니다</p>
+                            <p className="mt-2.5">학내 식당 메뉴는 어디서 확인하나요?</p>
+                            <p className="self-start mt-3.5">셔틀버스 운영 시간을 알고 싶어요</p>
+                          </section>
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
                   </div>
-
-                  {/* Quick Reply Options */}
-                  <Button variant="outline" className="flex gap-5 justify-between items-start px-5 pt-3.5 pb-1.5 mt-2 max-w-full text-xs text-black whitespace-nowrap bg-sky-100 rounded-xl w-[222px]">
-                    <span>학사안내</span>
-                    <img src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/8fe4d81f2ed03ff3edce7302efe3022b2e93ae21?placeholderIfAbsent=true" alt="Icon" className="object-contain shrink-0 w-5 aspect-square" />
-                  </Button>
-
-                  <Button variant="outline" className="flex gap-5 justify-between items-start px-5 pt-3.5 pb-2 mt-3 max-w-full text-xs text-black whitespace-nowrap bg-sky-100 rounded-xl w-[222px]">
-                    <span>강의안내</span>
-                    <img src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/580833e53abf4766c1a4147d69c831de0007e036?placeholderIfAbsent=true" alt="Icon" className="object-contain shrink-0 w-5 aspect-square" />
-                  </Button>
-
-                  <Button variant="outline" className="flex gap-5 justify-between items-start px-5 pt-3.5 pb-2 mt-3 max-w-full text-xs text-black whitespace-nowrap bg-sky-100 rounded-xl w-[222px]">
-                    <span>국제교류</span>
-                    <img src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/4e1d5a2ab12e4ca028edf1811284a799e320fd5f?placeholderIfAbsent=true" alt="Icon" className="object-contain shrink-0 w-5 aspect-[1.05]" />
-                  </Button>
-
-                  <Button variant="outline" className="flex gap-5 justify-between items-start px-5 pt-3.5 pb-1.5 mt-3 max-w-full text-xs text-black whitespace-nowrap bg-sky-100 rounded-xl w-[222px]">
-                    <span>교내문의</span>
-                    <img src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/68094d1618900dd20d0ff12f837b23ece2c2d03a?placeholderIfAbsent=true" alt="Icon" className="object-contain shrink-0 w-5 aspect-square" />
-                  </Button>
 
                   {/* Rating Icons */}
                   <div className="flex gap-4 self-center mt-5 w-36 max-w-full">
