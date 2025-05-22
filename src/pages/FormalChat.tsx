@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -94,6 +93,7 @@ const FormalChat = () => {
                       title="학사안내"
                       isOpen={isAcademicInfoOpen}
                       setIsOpen={setIsAcademicInfoOpen}
+                      className="bg-orange-100"
                     >
                       <CategoryContent questions={academicQuestions} />
                     </CollapsibleCategoryGroup>
@@ -103,6 +103,7 @@ const FormalChat = () => {
                       title="강의안내"
                       isOpen={isLectureInfoOpen}
                       setIsOpen={setIsLectureInfoOpen}
+                      className="bg-orange-100"
                     >
                       <CategoryContent questions={lectureQuestions} />
                     </CollapsibleCategoryGroup>
@@ -112,6 +113,7 @@ const FormalChat = () => {
                       title="국제교류"
                       isOpen={isInternationalOpen}
                       setIsOpen={setIsInternationalOpen}
+                      className="bg-orange-100"
                     >
                       <CategoryContent questions={internationalQuestions} />
                     </CollapsibleCategoryGroup>
@@ -121,6 +123,7 @@ const FormalChat = () => {
                       title="교내문의"
                       isOpen={isCampusInfoOpen}
                       setIsOpen={setIsCampusInfoOpen}
+                      className="bg-orange-100"
                     >
                       <CategoryContent questions={campusQuestions} />
                     </CollapsibleCategoryGroup>
