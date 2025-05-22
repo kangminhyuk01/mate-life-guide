@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -71,14 +70,6 @@ const FriendlyChat = () => {
                       </CollapsibleTrigger>
                       <CollapsibleContent className="pt-4">
                         <div className="flex flex-col space-y-3">
-                          <div className="flex gap-5 justify-between items-start px-5 py-3.5 whitespace-nowrap bg-sky-100 rounded-xl border border-black border-solid">
-                            <h2>학사안내</h2>
-                            <img
-                              src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/5da1537186d9ca8dc1298c7c81113fcd70c185f5?placeholderIfAbsent=true"
-                              className="object-contain shrink-0 w-5 aspect-square"
-                              alt="Information icon"
-                            />
-                          </div>
                           <section className="flex flex-col self-start px-3 pt-3 pb-6 bg-white rounded-xl border border-black border-solid">
                             <p className="self-start">1전공 졸업요건이 궁금합니다</p>
                             <p className="mt-3.5">졸업하려면 몇학점 들어야하나요?</p>
