@@ -1,18 +1,13 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
 const Home = () => {
   const navigate = useNavigate();
-
   const handleGetStarted = () => {
     navigate("/login");
   };
-
-  return (
-    <main className="overflow-hidden pt-9 pb-24 bg-slate-50">
+  return <main className="overflow-hidden pt-9 pb-24 bg-slate-50">
       {/* Header Section */}
       <header className="flex flex-col pt-4 w-full text-base font-medium leading-none bg-slate-50 text-neutral-800 max-md:max-w-full">
         <Navbar />
@@ -36,15 +31,12 @@ const Home = () => {
                     <div className="flex flex-col items-start self-center mt-20 max-w-full text-xl font-bold leading-tight w-[467px] max-md:mt-10">
                       <p className="text-sky-500">Campus mate AI 출시 !</p>
                       <div className="shrink-0 mt-1 h-0.5 border-2 border-sky-500 border-solid w-[110px]"></div>
-                      <p className="self-stretch mt-10 text-2xl leading-6 text-black max-md:mt-10 max-md:max-w-full">
+                      <p className="self-stretch mt-10 text-2xl leading-6 text-black max-md:mt-10 max-md:max-w-full px-[2px]">
                         단순 FAQ 응대가 아닌,
                         <br />
                         여러분들의 대학생활을 책임지는 똑똑한 상담사!
                       </p>
-                      <button 
-                        className="px-8 py-3 mt-8 whitespace-nowrap bg-blue-100 text-neutral-800 hover:bg-blue-200 transition-colors max-md:px-5"
-                        onClick={handleGetStarted}
-                      >
+                      <button className="px-8 py-3 mt-8 whitespace-nowrap bg-blue-100 text-neutral-800 hover:bg-blue-200 transition-colors max-md:px-5" onClick={handleGetStarted}>
                         시작하기
                       </button>
                     </div>
@@ -113,8 +105,6 @@ const Home = () => {
 
       {/* Footer Section */}
       <Footer />
-    </main>
-  );
+    </main>;
 };
-
 export default Home;
