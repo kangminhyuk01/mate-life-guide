@@ -1,8 +1,13 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Card, CardContent } from "@/components/ui/card";
 
 const FriendlyChat = () => {
+  const [isAcademicInfoOpen, setIsAcademicInfoOpen] = useState(false);
+
   return (
     <main className="flex overflow-hidden flex-col pt-14 pb-32 bg-white max-md:pb-24">
       <div className="flex self-center w-full max-w-[1362px] max-md:max-w-full">
@@ -45,6 +50,46 @@ const FriendlyChat = () => {
                   <div className="flex gap-3.5 self-stretch text-xs text-black">
                     <img src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/be24feca349b831dcc29c74056abcd789b39f289?placeholderIfAbsent=true" alt="Bot avatar" className="object-contain shrink-0 aspect-square rounded-[90px] w-[45px]" />
                     <p className="self-start px-6 py-4 bg-gray-100 rounded-3xl max-md:px-5">안녕! 무슨 고민있어?</p>
+                  </div>
+
+                  {/* Academic Information Accordion */}
+                  <div className="w-full mt-2 text-sm">
+                    <article className="text-sm text-black max-w-[266px]">
+                      <section className="flex overflow-hidden flex-col px-6 pt-5 pb-8 w-full rounded-md border border-purple-500 border-dashed">
+                        <Accordion type="single" collapsible className="w-full">
+                          <AccordionItem value="academic-info" className="border-none">
+                            <AccordionTrigger className="flex gap-5 justify-between px-5 py-3.5 whitespace-nowrap bg-sky-100 rounded-xl hover:no-underline">
+                              <span className="my-auto">학사안내</span>
+                              <img 
+                                src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/51de631b4d5ae4d64d3ef80f8c8200dc4b521e06?placeholderIfAbsent=true" 
+                                className="object-contain shrink-0 w-5 aspect-square"
+                                alt="Information icon"
+                              />
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              <div className="pt-7">
+                                <div className="flex gap-5 justify-between items-start px-5 py-3.5 whitespace-nowrap bg-sky-100 rounded-xl border border-black border-solid">
+                                  <h2>학사안내</h2>
+                                  <img
+                                    src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/5da1537186d9ca8dc1298c7c81113fcd70c185f5?placeholderIfAbsent=true"
+                                    className="object-contain shrink-0 w-5 aspect-square"
+                                    alt="Information icon"
+                                  />
+                                </div>
+                                <section className="flex flex-col self-start px-3 pt-3 pb-6 mt-7 bg-white rounded-xl border border-black border-solid">
+                                  <p className="self-start">1전공 졸업요건이 궁금합니다</p>
+                                  <p className="mt-3.5">졸업하려면 몇학점 들어야하나요?</p>
+                                  <p className="self-start mt-3.5">계절학기는 언제 신청하나요?</p>
+                                  <p className="mt-2.5">신입생은 언제 휴학신청이 가능한가요?</p>
+                                  <p className="self-start mt-3.5">예비군은 어떻게 신청하나요?</p>
+                                  <p className="mt-3.5">휴학하고 싶은데 등록금 환불은 어떻게 하나요 ?</p>
+                                </section>
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      </section>
+                    </article>
                   </div>
 
                   {/* Quick Reply Options */}
