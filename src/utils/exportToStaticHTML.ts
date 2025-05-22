@@ -16,45 +16,45 @@ export const getStaticHTML = (componentName: string) => {
   // Create the component wrapped in a StaticRouter
   switch (componentName) {
     case 'FriendlyChat':
-      component = (
-        <StaticRouter location="/friendly-chat">
-          <FriendlyChat />
-        </StaticRouter>
+      component = React.createElement(
+        StaticRouter,
+        { location: "/friendly-chat" },
+        React.createElement(FriendlyChat)
       );
       break;
     case 'FormalChat':
-      component = (
-        <StaticRouter location="/formal-chat">
-          <FormalChat />
-        </StaticRouter>
+      component = React.createElement(
+        StaticRouter,
+        { location: "/formal-chat" },
+        React.createElement(FormalChat)
       );
       break;
     case 'Home':
-      component = (
-        <StaticRouter location="/">
-          <Home />
-        </StaticRouter>
+      component = React.createElement(
+        StaticRouter,
+        { location: "/" },
+        React.createElement(Home)
       );
       break;
     case 'Login':
-      component = (
-        <StaticRouter location="/login">
-          <Login />
-        </StaticRouter>
+      component = React.createElement(
+        StaticRouter,
+        { location: "/login" },
+        React.createElement(Login)
       );
       break;
     case 'Signup':
-      component = (
-        <StaticRouter location="/signup">
-          <Signup />
-        </StaticRouter>
+      component = React.createElement(
+        StaticRouter,
+        { location: "/signup" },
+        React.createElement(Signup)
       );
       break;
     case 'HomeLoggedIn':
-      component = (
-        <StaticRouter location="/home-logged-in">
-          <HomeLoggedIn />
-        </StaticRouter>
+      component = React.createElement(
+        StaticRouter,
+        { location: "/home-logged-in" },
+        React.createElement(HomeLoggedIn)
       );
       break;
     default:
