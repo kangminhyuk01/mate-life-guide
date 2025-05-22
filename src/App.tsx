@@ -12,7 +12,6 @@ import HomeLoggedIn from "./pages/HomeLoggedIn";
 import NotFound from "./pages/NotFound";
 import FriendlyChat from "./pages/FriendlyChat";
 import FormalChat from "./pages/FormalChat";
-import ExportPage from "./pages/ExportPage";
 
 const App = () => {
   // Create a new QueryClient instance inside the component
@@ -31,7 +30,6 @@ const App = () => {
             <Route path="/home-logged-in" element={<HomeLoggedIn />} />
             <Route path="/friendly-chat" element={<FriendlyChat />} />
             <Route path="/formal-chat" element={<FormalChat />} />
-            <Route path="/export" element={<ExportPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
