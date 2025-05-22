@@ -2,6 +2,7 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 interface ModeSelectionModalProps {
   isOpen: boolean;
@@ -68,7 +69,7 @@ const ModeSelectionModal = ({ isOpen, onClose }: ModeSelectionModalProps) => {
                     <div className="flex flex-col items-center">
                       <div className="rounded-full bg-amber-100 p-4 w-32 h-32 flex items-center justify-center mb-6">
                         <img
-                          src="/lovable-uploads/9a6a6880-3046-4052-bb95-1372437df7f9.png"
+                          src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/fb062b47b1fd21abd84d9d722e97e3e5219623cd?placeholderIfAbsent=true"
                           alt="반말 모드 캐릭터"
                           className="object-contain w-24 h-24"
                         />
@@ -85,7 +86,7 @@ const ModeSelectionModal = ({ isOpen, onClose }: ModeSelectionModalProps) => {
                     <div className="flex flex-col items-center">
                       <div className="rounded-full bg-amber-100 p-4 w-32 h-32 flex items-center justify-center mb-6">
                         <img
-                          src="/lovable-uploads/9a6a6880-3046-4052-bb95-1372437df7f9.png"
+                          src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/dd4085cd3b49e838fbd89b524e7a94bbc12d3eed?placeholderIfAbsent=true"
                           alt="존댓말 모드 캐릭터"
                           className="object-contain w-24 h-24"
                         />
