@@ -47,51 +47,47 @@ const ModeSelectionModal = ({ isOpen, onClose }: ModeSelectionModalProps) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="overflow-hidden bg-white border border-solid border-zinc-400 shadow-lg rounded-lg max-w-2xl">
-                <div className="flex gap-5 p-6 max-md:flex-col">
-                  {/* Left Side - 반말 모드 (Informal) */}
-                  <div className="w-3/4 max-md:w-full">
-                    <div className="flex flex-col">
-                      <div className="self-start">
-                        <button onClick={onClose} className="focus:outline-none">
-                          <img
-                            src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/6ecf6dbea564e971e9346506a4c789397cace8ea?placeholderIfAbsent=true"
-                            alt="닫기"
-                            className="object-contain aspect-square w-[31px]"
-                          />
-                        </button>
-                      </div>
-                      <div className="flex flex-col items-start max-w-full">
-                        <Dialog.Title className="text-2xl font-semibold mb-6 text-center text-neutral-800">
-                          모드 선택
-                        </Dialog.Title>
-                        <div className="flex flex-col items-center">
-                          <img
-                            src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/fb062b47b1fd21abd84d9d722e97e3e5219623cd?placeholderIfAbsent=true"
-                            alt="반말 모드 캐릭터"
-                            className="object-contain mt-8 max-w-full aspect-square rounded-[90px] w-[122px]"
-                          />
-                          <button 
-                            className="px-6 py-3 mt-6 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors text-center"
-                            onClick={handleInformalMode}
-                          >
-                            반말 모드
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+              <Dialog.Panel className="overflow-hidden bg-white border border-solid border-zinc-400 shadow-lg rounded-lg max-w-4xl w-full">
+                <div className="flex justify-between p-6 max-md:flex-col">
+                  <div className="self-start absolute">
+                    <button onClick={onClose} className="focus:outline-none">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/6ecf6dbea564e971e9346506a4c789397cace8ea?placeholderIfAbsent=true"
+                        alt="닫기"
+                        className="object-contain aspect-square w-[31px]"
+                      />
+                    </button>
                   </div>
+
+                  <Dialog.Title className="text-3xl font-semibold text-center text-neutral-800 w-full mb-8 mt-4">
+                    모드 선택
+                  </Dialog.Title>
                   
-                  {/* Right Side - 존댓말 모드 (Formal) */}
-                  <div className="w-1/4 max-md:w-full">
-                    <div className="flex flex-col items-center mt-20 text-base text-black max-md:mt-10">
+                  <div className="flex w-full justify-center gap-24 max-md:flex-col max-md:items-center max-md:gap-12">
+                    {/* Left Side - 반말 모드 (Informal) */}
+                    <div className="flex flex-col items-center">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/fb062b47b1fd21abd84d9d722e97e3e5219623cd?placeholderIfAbsent=true"
+                        alt="반말 모드 캐릭터"
+                        className="object-contain max-w-full aspect-square rounded-[90px] w-[160px]"
+                      />
+                      <button 
+                        className="px-8 py-4 mt-8 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors text-center text-lg w-48"
+                        onClick={handleInformalMode}
+                      >
+                        반말 모드
+                      </button>
+                    </div>
+                    
+                    {/* Right Side - 존댓말 모드 (Formal) */}
+                    <div className="flex flex-col items-center">
                       <img
                         src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/dd4085cd3b49e838fbd89b524e7a94bbc12d3eed?placeholderIfAbsent=true"
                         alt="존댓말 모드 캐릭터"
-                        className="object-contain aspect-square rounded-[90px] w-[122px]"
+                        className="object-contain aspect-square rounded-[90px] w-[160px]"
                       />
                       <button
-                        className="px-4 py-3 mt-6 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-colors text-center"
+                        className="px-8 py-4 mt-8 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-colors text-center text-lg w-48"
                         onClick={handleFormalMode}
                       >
                         존댓말 모드
