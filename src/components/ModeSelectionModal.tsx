@@ -1,6 +1,7 @@
 
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { useNavigate } from "react-router-dom";
 
 interface ModeSelectionModalProps {
   isOpen: boolean;
@@ -8,6 +9,18 @@ interface ModeSelectionModalProps {
 }
 
 const ModeSelectionModal = ({ isOpen, onClose }: ModeSelectionModalProps) => {
+  const navigate = useNavigate();
+
+  const handleInformalMode = () => {
+    onClose();
+    navigate("/friendly-chat");
+  };
+
+  const handleFormalMode = () => {
+    onClose();
+    navigate("/formal-chat");
+  };
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
@@ -40,13 +53,13 @@ const ModeSelectionModal = ({ isOpen, onClose }: ModeSelectionModalProps) => {
                 <div className="flex flex-col gap-4 w-full">
                   <button 
                     className="py-4 px-6 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors"
-                    onClick={onClose}
+                    onClick={handleInformalMode}
                   >
                     반말 모드
                   </button>
                   <button 
                     className="py-4 px-6 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-colors"
-                    onClick={onClose}
+                    onClick={handleFormalMode}
                   >
                     존댓말 모드
                   </button>
