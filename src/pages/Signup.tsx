@@ -1,18 +1,13 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
-
 const Signup = () => {
   const navigate = useNavigate();
-  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     navigate("/login");
   };
-
-  return (
-    <div className="bg-slate-50 min-h-screen">
+  return <div className="bg-slate-50 min-h-screen">
       {/* Header Section */}
       <header className="flex w-full bg-slate-50 min-h-16"></header>
 
@@ -30,10 +25,7 @@ const Signup = () => {
             </div>
 
             {/* Sign-up Form */}
-            <form 
-              className="flex flex-col items-center px-16 pt-9 pb-24 mt-8 text-base bg-white border border-solid border-zinc-400 max-md:px-5 max-md:max-w-full"
-              onSubmit={handleSubmit}
-            >
+            <form className="flex flex-col items-center px-16 pt-9 pb-24 mt-8 text-base bg-white border border-solid border-zinc-400 max-md:px-5 max-md:max-w-full" onSubmit={handleSubmit}>
               <div className="flex flex-col max-w-full w-[400px]">
                 <h3 className="self-center text-3xl font-semibold tracking-tighter leading-none text-center text-neutral-800">
                   회원가입
@@ -41,46 +33,23 @@ const Signup = () => {
 
                 {/* Input Fields */}
                 <div className="mt-5 tracking-normal leading-none text-gray-900 whitespace-nowrap">
-                  <input 
-                    type="text" 
-                    placeholder="ID" 
-                    className="px-3 py-2 w-full bg-white rounded-lg border-2 border-solid border-zinc-400 max-md:pr-5" 
-                    required 
-                  />
+                  <input type="text" placeholder="ID" className="px-3 py-2 w-full bg-white rounded-lg border-2 border-solid border-zinc-400 max-md:pr-5" required />
                 </div>
 
-                <input 
-                  type="password" 
-                  placeholder="비밀번호" 
-                  className="px-3 py-2 mt-4 tracking-normal leading-none text-gray-900 whitespace-nowrap bg-white rounded-lg border-2 border-solid border-zinc-400 max-md:pr-5 w-full" 
-                  required 
-                />
+                <input type="password" placeholder="비밀번호" className="px-3 py-2 mt-4 tracking-normal leading-none text-gray-900 whitespace-nowrap bg-white rounded-lg border-2 border-solid border-zinc-400 max-md:pr-5 w-full" required />
 
-                <input 
-                  type="password" 
-                  placeholder="비밀번호 확인" 
-                  className="px-3 py-2 mt-5 tracking-normal leading-none text-gray-900 bg-white rounded-lg border-2 border-solid border-zinc-400 max-md:pr-5 w-full" 
-                  required 
-                />
+                <input type="password" placeholder="비밀번호 확인" className="px-3 py-2 mt-5 tracking-normal leading-none text-gray-900 bg-white rounded-lg border-2 border-solid border-zinc-400 max-md:pr-5 w-full" required />
 
-                <input 
-                  type="text" 
-                  placeholder="이름" 
-                  className="px-3 py-2 mt-5 tracking-normal leading-none text-gray-900 whitespace-nowrap bg-white rounded-lg border-2 border-solid border-zinc-400 max-md:pr-5 w-full" 
-                  required 
-                />
+                <input type="text" placeholder="이름" className="px-3 py-2 mt-5 tracking-normal leading-none text-gray-900 whitespace-nowrap bg-white rounded-lg border-2 border-solid border-zinc-400 max-md:pr-5 w-full" required />
 
                 {/* Submit Button */}
-                <button 
-                  type="submit" 
-                  className="px-10 py-2 mt-8 font-medium leading-none text-black whitespace-nowrap bg-sky-500 rounded-lg max-md:px-5 w-full h-10 hover:bg-sky-600 transition-colors"
-                >
+                <button type="submit" className="px-10 py-2 mt-8 font-medium leading-none text-black whitespace-nowrap bg-sky-500 rounded-lg max-md:px-5 w-full h-10 hover:bg-sky-600 transition-colors">
                   가입하기
                 </button>
 
                 {/* Login Link */}
                 <div className="flex gap-7 self-center mt-9 max-w-full text-base font-bold w-[271px]">
-                  <p className="grow shrink text-zinc-400 w-[156px]">
+                  <p className="grow shrink text-zinc-400 w-[156px] text-sm">
                     이미 계정이 있으신가요 ?
                   </p>
                   <Link to="/login" className="text-sky-500 hover:underline">로그인하기</Link>
@@ -93,8 +62,6 @@ const Signup = () => {
 
       {/* Footer Section */}
       <footer className="flex w-full bg-slate-50 min-h-12"></footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Signup;
