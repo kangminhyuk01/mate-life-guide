@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from '../components/ui/button';
 import { getStaticHTML } from './exportToStaticHTML';
+import { toast } from '../components/ui/sonner';
 
 const HTMLExporter = () => {
   const [exportStatus, setExportStatus] = useState<{[key: string]: string}>({});
@@ -41,6 +42,8 @@ const HTMLExporter = () => {
         [pageName]: 'Exported successfully'
       }));
       
+      toast.success(`${pageName} exported successfully!`);
+      
       setTimeout(() => {
         setExportStatus(prev => {
           const newStatus = { ...prev };
@@ -55,6 +58,8 @@ const HTMLExporter = () => {
         ...prev,
         [pageName]: 'Error during export'
       }));
+      
+      toast.error(`Error exporting ${pageName}. See console for details.`);
     }
   };
   
