@@ -1,8 +1,48 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import CollapsibleCategoryGroup from "@/components/chat/CollapsibleCategoryGroup";
+import CategoryContent from "@/components/chat/CategoryContent";
 
 const FormalChat = () => {
+  const [isAcademicInfoOpen, setIsAcademicInfoOpen] = useState(false);
+  const [isLectureInfoOpen, setIsLectureInfoOpen] = useState(false);
+  const [isInternationalOpen, setIsInternationalOpen] = useState(false);
+  const [isCampusInfoOpen, setIsCampusInfoOpen] = useState(false);
+
+  const academicQuestions = [
+    "1전공 졸업요건이 궁금합니다",
+    "졸업하려면 몇학점 들어야하나요?",
+    "계절학기는 언제 신청하나요?",
+    "신입생은 언제 휴학신청이 가능한가요?",
+    "예비군은 어떻게 신청하나요?",
+    "휴학하고 싶은데 등록금 환불은 어떻게 하나요 ?",
+  ];
+
+  const lectureQuestions = [
+    "수강신청은 어떻게 하나요?",
+    "강의 평가는 어디서 볼 수 있나요?",
+    "전공필수과목이 무엇인가요?",
+    "수업 교재는 어디서 구매하나요?",
+    "수업 출석은 어떻게 확인하나요?",
+  ];
+
+  const internationalQuestions = [
+    "교환학생 신청 방법이 궁금해요",
+    "해외 인턴십 프로그램은 어떻게 참여하나요?",
+    "어학연수 프로그램이 있나요?",
+    "외국인 친구를 사귈 수 있는 프로그램이 있나요?",
+  ];
+
+  const campusQuestions = [
+    "도서관 운영시간이 어떻게 되나요?",
+    "학생증 재발급은 어디서 하나요?",
+    "기숙사 신청 방법이 궁금합니다",
+    "학내 식당 메뉴는 어디서 확인하나요?",
+    "셔틀버스 운영 시간을 알고 싶어요",
+  ];
+
   return (
     <main className="flex overflow-hidden flex-col pt-14 pb-32 bg-white max-md:pb-24">
       <div className="flex self-center w-full max-w-[1362px] max-md:max-w-full">
@@ -47,26 +87,44 @@ const FormalChat = () => {
                     </p>
                   </div>
 
-                  {/* Quick Reply Options */}
-                  <Button variant="outline" className="flex gap-5 justify-between items-start px-5 pt-3.5 pb-1.5 mt-2 max-w-full text-xs text-black whitespace-nowrap bg-orange-100 rounded-xl w-[222px]">
-                    <span>학사안내</span>
-                    <img src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/8fe4d81f2ed03ff3edce7302efe3022b2e93ae21?placeholderIfAbsent=true" alt="Icon" className="object-contain shrink-0 w-5 aspect-square" />
-                  </Button>
+                  {/* Category Accordions */}
+                  <div className="w-full mt-4 space-y-3">
+                    {/* 학사안내 Accordion */}
+                    <CollapsibleCategoryGroup 
+                      title="학사안내"
+                      isOpen={isAcademicInfoOpen}
+                      setIsOpen={setIsAcademicInfoOpen}
+                    >
+                      <CategoryContent questions={academicQuestions} />
+                    </CollapsibleCategoryGroup>
 
-                  <Button variant="outline" className="flex gap-5 justify-between items-start px-5 pt-3.5 pb-2 mt-3 max-w-full text-xs text-black whitespace-nowrap bg-orange-100 rounded-xl w-[222px]">
-                    <span>강의안내</span>
-                    <img src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/580833e53abf4766c1a4147d69c831de0007e036?placeholderIfAbsent=true" alt="Icon" className="object-contain shrink-0 w-5 aspect-square" />
-                  </Button>
+                    {/* 강의안내 Accordion */}
+                    <CollapsibleCategoryGroup
+                      title="강의안내"
+                      isOpen={isLectureInfoOpen}
+                      setIsOpen={setIsLectureInfoOpen}
+                    >
+                      <CategoryContent questions={lectureQuestions} />
+                    </CollapsibleCategoryGroup>
 
-                  <Button variant="outline" className="flex gap-5 justify-between items-start px-5 pt-3.5 pb-2 mt-3 max-w-full text-xs text-black whitespace-nowrap bg-orange-100 rounded-xl w-[222px]">
-                    <span>국제교류</span>
-                    <img src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/4e1d5a2ab12e4ca028edf1811284a799e320fd5f?placeholderIfAbsent=true" alt="Icon" className="object-contain shrink-0 w-5 aspect-[1.05]" />
-                  </Button>
+                    {/* 국제교류 Accordion */}
+                    <CollapsibleCategoryGroup
+                      title="국제교류"
+                      isOpen={isInternationalOpen}
+                      setIsOpen={setIsInternationalOpen}
+                    >
+                      <CategoryContent questions={internationalQuestions} />
+                    </CollapsibleCategoryGroup>
 
-                  <Button variant="outline" className="flex gap-5 justify-between items-start px-5 pt-3.5 pb-1.5 mt-3 max-w-full text-xs text-black whitespace-nowrap bg-orange-100 rounded-xl w-[222px]">
-                    <span>교내문의</span>
-                    <img src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/68094d1618900dd20d0ff12f837b23ece2c2d03a?placeholderIfAbsent=true" alt="Icon" className="object-contain shrink-0 w-5 aspect-square" />
-                  </Button>
+                    {/* 교내문의 Accordion */}
+                    <CollapsibleCategoryGroup
+                      title="교내문의"
+                      isOpen={isCampusInfoOpen}
+                      setIsOpen={setIsCampusInfoOpen}
+                    >
+                      <CategoryContent questions={campusQuestions} />
+                    </CollapsibleCategoryGroup>
+                  </div>
 
                   {/* Rating Icons */}
                   <div className="flex gap-4 self-center mt-5 w-36 max-w-full">
