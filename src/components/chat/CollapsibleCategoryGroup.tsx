@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ChevronDown } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -13,7 +14,7 @@ const CollapsibleCategoryGroup = ({
   setIsOpen,
   children
 }: CollapsibleCategoryGroupProps) => {
-  return <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full border border-dashed border-purple-500 p-2 px-0 py-0 rounded-none">
+  return <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full p-2 px-0 py-0 rounded-none">
       <CollapsibleTrigger className="flex justify-between items-center w-full px-5 py-3.5 bg-sky-100 rounded-xl">
         <span className="text-sm">{title}</span>
         <ChevronDown className="h-5 w-5 transition-transform duration-200" style={{
