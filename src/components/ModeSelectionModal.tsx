@@ -47,8 +47,8 @@ const ModeSelectionModal = ({ isOpen, onClose }: ModeSelectionModalProps) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="overflow-hidden bg-white border border-solid border-zinc-400 shadow-lg rounded-lg max-w-4xl w-full">
-                <div className="flex justify-between p-6 max-md:flex-col">
+              <Dialog.Panel className="overflow-hidden bg-white border border-solid border-zinc-400 shadow-lg rounded-lg w-full max-w-md">
+                <div className="flex flex-col items-center p-8">
                   <div className="self-start absolute">
                     <button onClick={onClose} className="focus:outline-none">
                       <img
@@ -59,35 +59,39 @@ const ModeSelectionModal = ({ isOpen, onClose }: ModeSelectionModalProps) => {
                     </button>
                   </div>
 
-                  <Dialog.Title className="text-3xl font-semibold text-center text-neutral-800 w-full mb-8 mt-4">
-                    모드 선택
+                  <Dialog.Title className="text-3xl font-semibold text-center text-neutral-800 mb-12 mt-4">
+                    MODE 선택
                   </Dialog.Title>
-                  
-                  <div className="flex w-full justify-center gap-24 max-md:flex-col max-md:items-center max-md:gap-12">
-                    {/* Left Side - 반말 모드 (Informal) */}
+
+                  <div className="flex justify-center gap-20 w-full">
+                    {/* Left Side - 반말 모드 (Informal) with blue squirrel */}
                     <div className="flex flex-col items-center">
-                      <img
-                        src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/fb062b47b1fd21abd84d9d722e97e3e5219623cd?placeholderIfAbsent=true"
-                        alt="반말 모드 캐릭터"
-                        className="object-contain max-w-full aspect-square rounded-[90px] w-[160px]"
-                      />
+                      <div className="rounded-full bg-amber-100 p-4 w-32 h-32 flex items-center justify-center mb-6">
+                        <img
+                          src="/lovable-uploads/9a6a6880-3046-4052-bb95-1372437df7f9.png"
+                          alt="반말 모드 캐릭터"
+                          className="object-contain w-24 h-24"
+                        />
+                      </div>
                       <button 
-                        className="px-8 py-4 mt-8 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors text-center text-lg w-48"
+                        className="px-4 py-2 bg-blue-100 hover:bg-blue-200 text-black rounded-lg transition-colors text-center w-24"
                         onClick={handleInformalMode}
                       >
                         반말 모드
                       </button>
                     </div>
                     
-                    {/* Right Side - 존댓말 모드 (Formal) */}
+                    {/* Right Side - 존댓말 모드 (Formal) with brown squirrel */}
                     <div className="flex flex-col items-center">
-                      <img
-                        src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/dd4085cd3b49e838fbd89b524e7a94bbc12d3eed?placeholderIfAbsent=true"
-                        alt="존댓말 모드 캐릭터"
-                        className="object-contain aspect-square rounded-[90px] w-[160px]"
-                      />
+                      <div className="rounded-full bg-amber-100 p-4 w-32 h-32 flex items-center justify-center mb-6">
+                        <img
+                          src="/lovable-uploads/9a6a6880-3046-4052-bb95-1372437df7f9.png"
+                          alt="존댓말 모드 캐릭터"
+                          className="object-contain w-24 h-24"
+                        />
+                      </div>
                       <button
-                        className="px-8 py-4 mt-8 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-colors text-center text-lg w-48"
+                        className="px-4 py-2 bg-blue-100 hover:bg-blue-200 text-black rounded-lg transition-colors text-center w-24"
                         onClick={handleFormalMode}
                       >
                         존댓말 모드
